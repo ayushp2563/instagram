@@ -6,6 +6,12 @@ import '../App.css'
 
 
 const SplashScreen = () => {
+
+    let my_url="/Login"
+    setTimeout(function(){
+      window.location.replace(my_url)
+    },200);
+    
   return (
     <div>
       <center style={{position: 'absolute',
