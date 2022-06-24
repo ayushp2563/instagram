@@ -1,0 +1,47 @@
+﻿[
+    {
+        "id": "1",
+        "username": "amaan123",
+        "firstname": "Amaan",
+        "lastname": "Sajina",
+        "mobileno": "9327851664",
+        "email": "amaan@gmail.com",
+        "password": "as123"
+    },
+    {
+        "id": "2",
+        "username": "dom123",
+        "firstname": "Dominic",
+        "lastname": "Toreto",
+        "mobileno": "7802823815",
+        "email": "dom@gmail.com",
+        "password": "dom123456"
+    },
+    {
+        "id": "3",
+        "username": "paul123",
+        "firstname": "Paul",
+        "lastname": "Walker",
+        "mobileno": "7802823815",
+        "email": "paul@gmail.com",
+        "password": "paul123456"
+    },
+    {
+        "id": "4",
+        "username": "tony123",
+        "firstname": "Tony",
+        "lastname": "Stark",
+        "mobileno": "8488010246",
+        "email": "tony@gmail.com",
+        "password": "tony123456"
+    },
+    {
+        "id": "5",
+        "username": "tom123",
+        "firstname": "Tom",
+        "lastname": "Holland",
+        "mobileno": "8488010255",
+        "email": "tom@gmail.com",
+        "password": "tom123456"
+    }
+]

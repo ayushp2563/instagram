@@ -7,10 +7,10 @@ import '../App.css'
 
 const SplashScreen = () => {
 
-    let my_url="/Login"
+    let my_url="/login"
     setTimeout(function(){
       window.location.replace(my_url)
-    },200);
+    },300);
     
   return (
     <div>
