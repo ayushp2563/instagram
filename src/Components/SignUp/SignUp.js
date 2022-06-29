@@ -2,28 +2,10 @@ import React from 'react'
 import { useState } from 'react'
 import { Grid, Paper, TextField, Typography, Button } from '@mui/material'
 import igicon from '../images/Instagram_logo.png'
+import { useNavigate } from "react-router-dom"
+import url from '../../api'
 
 const SignUp = () => {
-
-  const [user, setUser] = useState({
-    username: "", firstname: "", lastname: "", mobileno: "", email: "", password: "", cpassword: ""
-  });
-
-let name,value;
-
-  const handleInputs  = (e) => { 
-      console.log(e);
-      name = e.target.name;
-      value = e.target.value;
-
-      setUser({...user,[name]:value});
-
-  }
-
-  
-const postdata = async () =>{
-  
-}
 
   const paperStyle = {
     padding: "25px 20px ",
@@ -31,6 +13,34 @@ const postdata = async () =>{
     margin: "25px auto",
     align: 'center'
   }
+
+  const [username, setUsername] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [mobileno, setMobileno] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  
+  async function signUp() {
+    let item = { username, firstname, lastname, mobileno, email, password }
+    console.warn(item)
+    let result = await fetch(url + 'user/insert', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify(item)
+    })
+    result = await result.json();
+    console.warn("result", result)
+    localStorage.setItem("user-info", JSON.stringify(result));
+    navigate("/Login")
+  }
+
+
+
   return (
     <Grid>
       <Paper elevation={20} style={paperStyle}>
@@ -39,22 +49,14 @@ const postdata = async () =>{
         <br />
         <Typography marginBottom="20px" varient='caption' align='center'> Sign up to see photos and videos from your friends</Typography>
         <form>
-          <TextField sx={{ mb: 2 }} name="username" id="username" value={user.username} onChange={handleInputs} fullWidth label
-            ='Username' />
-          <TextField sx={{ mb: 2 }} name="firstname" id="firstname" value={user.firstname} onChange={handleInputs} fullWidth label
-            ='First Name' />
-          <TextField sx={{ mb: 2 }} name="lastname" id="lastname" value={user.lastname} onChange={handleInputs} fullWidth label
-            ='Last Name' />
-          <TextField sx={{ mb: 2 }} name="mobileno" id="mobileno" value={user.mobileno} onChange={handleInputs} fullWidth label='Mobile Number' />
-          <TextField sx={{ mb: 2 }} name="email" id="email" value={user.email} onChange={handleInputs} fullWidth label='Email' />
-          <TextField sx={{ mb: 2 }} name="password" id="password" value={user.password}
-            onChange={handleInputs} fullWidth label
-            ='Password' />
-          <TextField sx={{ mb: 2 }} name="cpassword" id="cpassword" value={user.cpassword} onChange={handleInputs} fullWidth label
-            =' Confirm Password' />
-
+          <TextField value={username} onChange={(e) => setUsername(e.target.value)} sx={{ mb: 2 }} name="username" id="username" fullWidth label='Username' />
+          <TextField value={firstname} onChange={(e) => setFirstname(e.target.value)} sx={{ mb: 2 }} name="firstname" id="firstname" fullWidth label='First Name' />
+          <TextField value={lastname} onChange={(e) => setLastname(e.target.value)} sx={{ mb: 2 }} name="lastname" id="lastname" fullWidth label='Last Name' />
+          <TextField value={mobileno} onChange={(e) => setMobileno(e.target.value)} sx={{ mb: 2 }} name="mobileno" id="mobileno" fullWidth label='Mobile Number' />
+          <TextField value={email} onChange={(e) => setEmail(e.target.value)} sx={{ mb: 2 }} name="email" id="email" fullWidth label='Email' />
+          <TextField value={password} onChange={(e) => setPassword(e.target.value)} sx={{ mb: 2 }} name="password" id="password" fullWidth label='Password' />
+          <TextField sx={{ mb: 2 }} name="cpassword" id="cpassword" fullWidth label=' Confirm Password' />
         </form>
-
 
         <Typography varient='caption' align='center' marginTop="10px">
           People who use our service may have uploaded your contact information to Instagram.
@@ -64,7 +66,7 @@ const postdata = async () =>{
           By signing up,you are agree to our Terms,Data Policy and Cookies Policy.
         </Typography>
 
-        <Button sx={{ mt: 2, mx: 'auto', width: 350 }} onClick={postdata} type='submit' variant='contained' color='primary'> Sign Up</Button>
+        <Button sx={{ mt: 2, mx: 'auto', width: 350 }} onClick={signUp} type='submit' variant='contained' color='primary'> Sign Up</Button>
       </Paper>
 
       <Paper elevation={10} style={paperStyle} >

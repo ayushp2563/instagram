@@ -15,6 +15,7 @@ import Button from '@mui/material/Button';
 // import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
 // import { MenuList } from '@mui/material';
 // import Fade from '@mui/material/Fade';
+import hacker from "../images/hacker.png"
 
 
 export default function AccountMenu() {
@@ -52,7 +53,7 @@ export default function AccountMenu() {
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
                     >
-                        <Avatar sx={{ width: 32, height: 32, background: 'blue' }}>A</Avatar>
+                        <Avatar src={hacker} sx={{ width: 32, height: 32, background: 'blue' }}>A</Avatar>
                     </IconButton>
                 </Tooltip>
             </Box>
@@ -101,7 +102,7 @@ export default function AccountMenu() {
                     Saved
                 </MenuItem>
                 <MenuItem>
-                <Button variant='text' href='/ChangePass' >
+                <Button variant='text' href='/settings' >
                     {/* <Button
                         id="fade-button"
                         aria-controls={click ? 'fade-menu' : undefined}
@@ -135,7 +136,6 @@ export default function AccountMenu() {
                         <SwitchAccountIcon fontSize='small' />
                     </ListItemIcon>
                     Switch Accounts
-
                 </MenuItem>
                 <Divider />
                 <MenuItem >
