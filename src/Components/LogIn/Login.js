@@ -8,10 +8,19 @@ import mainscreen3 from "../images/mainscreen3.png"
 import mainscreen4 from "../images/mainscreen4.png"
 import "../LogIn/Login.css"
 // import SimpleImageSlider from "react-simple-image-slider";
-import { useNavigate } from "react-router-dom"
+import { Navigate, useNavigate } from "react-router-dom"
 
 
 function Login() {
+
+let Navigate = useNavigate();
+const instagramPost = () =>{
+  Navigate("/InstagramPost")
+}
+
+const signUp = () =>{
+  Navigate("/SignUp")
+}
 
   let myurl = "/splashscreen";
   window.onload = function () {
@@ -80,20 +89,14 @@ function Login() {
           <div className="slide-container">
             <div className="slide-content" id="slide-content">
               <img src={mainscreen1} alt="slide" className="active" />
-              <img src={mainscreen2} alt="slide" />
-              <img src={mainscreen3} alt="slide" />
-              <img src={mainscreen4} alt="slide" />
-              {/* <SimpleImageSlider
-                height="538px"
-                images={images}
-                showBullets={true}
-                showNavs={true}
-              /> */}
+              <img src={mainscreen2} alt="slide" className="active"/>
+              <img src={mainscreen3} alt="slide" className="active"/>
+              <img src={mainscreen4} alt="slide" className="active" />
             </div>
           </div>
         </Hidden>
       </Grid>
-      {/* <Grid item xs={3}  > */}
+    
       <Grid item xs={12} md={6} sx={{
         display: "flex",
         justifyContent: 'flex-start',
@@ -108,13 +111,13 @@ function Login() {
               <TextField onChange={(e) => setpassword(e.target.value)} sx={{ mb: 2 }} fullWidth label='Password' id="password" value={password} />
             </form>
 
-            <Button onChange={login} sx={{ mt: 2, mx: 'auto', width: 350 }} type='submit' variant='contained' color='primary' href='/InstagramPost'> Log In </Button>
+            <Button onChange={login} sx={{ mt: 2, mx: 'auto', width: 350 }} type='submit' variant='contained' color='primary' onClick={instagramPost}> Log In </Button>
 
             <Typography marginBottom={2} varient='caption' align='center' marginTop="10px">
               Forgot Password?
             </Typography>
             <Divider />
-            <Typography marginTop={2} varient='caption' align='center'> Don't have an account? <Button variant='text' href='/signup'>Sign up</Button> </Typography>
+            <Typography marginTop={2} varient='caption' align='center'> Don't have an account? <Button variant='text' onClick={signUp}>Sign up</Button> </Typography>
           </Paper>
         </div>
       </Grid>

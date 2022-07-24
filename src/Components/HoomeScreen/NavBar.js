@@ -12,8 +12,19 @@ import ExploreSharpIcon from '@mui/icons-material/ExploreSharp';
 import FavoriteBorderSharpIcon from '@mui/icons-material/FavoriteBorderSharp';
 import AccountMenu from './AccoutMenu';
 import Modal from '../Modal';
+import { Navigate, useNavigate } from "react-router-dom"
 
 const NavBar = () => {
+
+  let Navigate = useNavigate();
+  const feedPage = () =>{
+    Navigate("/feed")
+  }
+
+  const instagramPost = () =>{
+    Navigate("/InstagramPost")
+  }
+  
 
   const [open, setOpen] = useState(false);
   const [type, setType] = useState("");
@@ -89,7 +100,7 @@ const NavBar = () => {
             </Grid>
             <Grid item xs={0.5} />
             <Grid item display='inline-flex' verticalAlign='center' boxSizing='inherit' textAlign='center' alignItems='center' xs={4}>
-              <IconButton size="large" color="inherit" href='/InstagramPost'>
+              <IconButton size="large" color="inherit" onClick={instagramPost}>
                 <HomeSharpIcon style={{ color: 'aliceblue' }} />
               </IconButton>
               <IconButton size="large" color="inherit">
@@ -98,7 +109,7 @@ const NavBar = () => {
               <IconButton size="large" color="inherit" onClick={() => handleOpen("create-post")}>
                 <AddBoxSharpIcon />
               </IconButton>
-              <IconButton size="large" color="inherit" href="/Feed">
+              <IconButton size="large" color="inherit" onClick={feedPage}>
                 <ExploreSharpIcon />
               </IconButton>
               <IconButton size="large" color="inherit">

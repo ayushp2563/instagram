@@ -16,6 +16,7 @@ import Button from '@mui/material/Button';
 // import { MenuList } from '@mui/material';
 // import Fade from '@mui/material/Fade';
 import hacker from "../images/hacker.png"
+import { Navigate, useNavigate } from "react-router-dom"
 
 
 export default function AccountMenu() {
@@ -25,6 +26,14 @@ export default function AccountMenu() {
     // const [anchorOriginVertical, setanchorOriginVertical] = React.useState(null);
     // const click = Boolean(anchorOriginVertical);
 
+    let Navigate = useNavigate();
+    const settingsPage = () =>{
+      Navigate("/Settings")
+    }
+
+    const logIn = () =>{
+        Navigate("/Login")
+      }
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -102,7 +111,7 @@ export default function AccountMenu() {
                     Saved
                 </MenuItem>
                 <MenuItem>
-                <Button variant='text' href='/settings' >
+                <Button variant='text' onClick={settingsPage}>
                     {/* <Button
                         id="fade-button"
                         aria-controls={click ? 'fade-menu' : undefined}
@@ -139,7 +148,7 @@ export default function AccountMenu() {
                 </MenuItem>
                 <Divider />
                 <MenuItem >
-                    <Button variant='text' href='/login'>
+                    <Button variant='text' onClick={logIn}>
                         <ListItemIcon >
                             <Logout fontSize="small" />
                         </ListItemIcon>

@@ -7,6 +7,12 @@ import url from '../../api'
 
 const SignUp = () => {
 
+  let Navigate = useNavigate();
+  const logIn = () =>{
+    Navigate("/Login")
+  }
+   
+
   const paperStyle = {
     padding: "25px 20px ",
     width: 400,
@@ -70,7 +76,7 @@ const SignUp = () => {
       </Paper>
 
       <Paper elevation={10} style={paperStyle} >
-        <Typography varient='caption' align='center'> Have an account? <Button variant='text' href='/login'>Login</Button> </Typography>
+        <Typography varient='caption' align='center'> Have an account? <Button variant='text' onClick={logIn}>Login</Button> </Typography>
       </Paper>
     </Grid>
 
