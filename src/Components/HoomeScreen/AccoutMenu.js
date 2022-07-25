@@ -27,13 +27,13 @@ export default function AccountMenu() {
     // const click = Boolean(anchorOriginVertical);
 
     let Navigate = useNavigate();
-    const settingsPage = () =>{
-      Navigate("/Settings")
+    const settingsPage = () => {
+        Navigate("/Settings")
     }
 
-    const logIn = () =>{
+    const logIn = () => {
         Navigate("/Login")
-      }
+    }
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -111,33 +111,14 @@ export default function AccountMenu() {
                     Saved
                 </MenuItem>
                 <MenuItem>
-                <Button variant='text' onClick={settingsPage}>
-                    {/* <Button
-                        id="fade-button"
-                        aria-controls={click ? 'fade-menu' : undefined}
-                        aria-haspopup="true"
-                        aria-expanded={click ? 'true' : undefined}
-                        onClick={handleOpenMenu} > */}
+                    <Button variant='text' onClick={settingsPage}>
+
                         <ListItemIcon>
                             <Settings fontSize="small" />
                         </ListItemIcon>
                         Settings
-                        </Button>
-                    {/* </Button> */}
-                    {/* <Menu
-                        id="fade-menu"
-                        MenuListProps={{
-                            'aria-labelledby': 'fade-button',
-                        }}
-                        anchorOrigin={anchorOriginVertical}
-                        open={open}
-                        onClose={handleMenuClose}
-                        TransitionComponent={Fade}
-                    >
-                        <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-                        <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-                        <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
-                    </Menu> */}
+                    </Button>
+
                 </MenuItem>
                 <MenuItem>
 
@@ -155,9 +136,7 @@ export default function AccountMenu() {
                         Logout
                     </Button>
                 </MenuItem>
-                {/* <Menu id='changepass' anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
-                 <MenuList onClick={handleMenuClose}>Change Password</MenuList>
-            </Menu> */}
+
             </Menu>
 
         </React.Fragment>
