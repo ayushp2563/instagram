@@ -16,7 +16,6 @@ function App() {
   return (
     <> 
       <Routes>
-        <Route path="/" element={<SplashScreen/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/signup" element={<SignUp/>}/>
         <Route path="/navbar" element={<NavBar/>}/>
